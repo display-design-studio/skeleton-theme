@@ -23,35 +23,35 @@ Acceptance:
 ---
 
 ## 2) Quality Gates & CI
-- [ ] Verify CI runs: `typecheck`, `vite:build`, `theme-check`
-- [ ] Confirm CI runs on `push` + `pull_request`
-- [ ] Confirm no regressions in workflow after simplifications
+- [x] Verify CI runs: `typecheck`, `vite:build`, `theme-check`
+- [x] Confirm CI runs on `push` + `pull_request`
+- [x] Confirm no regressions in workflow after simplifications
 
 Step 2 closure checklist:
-- [ ] Open a recent PR and confirm both checks are green:
+- [x] Open a recent PR and confirm both checks are green:
   - `Typecheck and Build`
   - `Theme Check`
-- [ ] Enable branch protection on `main` and `staging` with required checks:
+- [x] Enable branch protection on `main` and `staging` with required checks:
   - `Typecheck and Build`
   - `Theme Check`
-- [ ] Block merge when checks are pending/failing
+- [x] Block merge when checks are pending/failing
 - [ ] (Optional) Disable direct push to `main`
 
 Acceptance:
-- [ ] All checks green on PR
-- [ ] Failing checks block merge
+- [x] All checks green on PR
+- [x] Failing checks block merge
 
 ---
 
 ## 3) Dev/Build Workflow Consistency
-- [ ] Verify `bun run dev` (local) works consistently
-- [ ] Verify `bun run dev:remote` works for Shopify-domain preview (tunnel)
-- [ ] Verify `bun run build` generates all expected assets and `vite-tag` mappings
-- [ ] Confirm team uses full domain in `.env` (`*.myshopify.com`)
+- [x] Verify `bun run dev` (local) works consistently
+- [x] Verify `bun run dev:remote` works for Shopify-domain preview (tunnel)
+- [x] Verify `bun run build` generates all expected assets and `vite-tag` mappings
+- [x] Confirm team uses full domain in `.env` (`*.myshopify.com`)
 
 Acceptance:
-- [ ] Local + remote preview both reliable
-- [ ] No CORS/PNA blockers in normal flow
+- [x] Local + remote preview both reliable
+- [x] No CORS/PNA blockers in normal flow
 
 ---
 
