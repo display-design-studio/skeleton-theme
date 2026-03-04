@@ -1,0 +1,89 @@
+{
+  "frontend/entrypoints/css/main.css": {
+    "file": "main-C4sk1vw8.css",
+    "src": "frontend/entrypoints/css/main.css",
+    "isEntry": true,
+    "name": "main",
+    "names": [
+      "main.css"
+    ]
+  },
+  "frontend/entrypoints/ts/404.ts": {
+    "file": "404-l0sNRNKZ.js",
+    "name": "404",
+    "src": "frontend/entrypoints/ts/404.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/article.ts": {
+    "file": "article-l0sNRNKZ.js",
+    "name": "article",
+    "src": "frontend/entrypoints/ts/article.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/blog.ts": {
+    "file": "blog-l0sNRNKZ.js",
+    "name": "blog",
+    "src": "frontend/entrypoints/ts/blog.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/cart.ts": {
+    "file": "cart-l0sNRNKZ.js",
+    "name": "cart",
+    "src": "frontend/entrypoints/ts/cart.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/collection.ts": {
+    "file": "collection-l0sNRNKZ.js",
+    "name": "collection",
+    "src": "frontend/entrypoints/ts/collection.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/gift-card.ts": {
+    "file": "gift-card-l0sNRNKZ.js",
+    "name": "gift-card",
+    "src": "frontend/entrypoints/ts/gift-card.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/index.ts": {
+    "file": "index-l0sNRNKZ.js",
+    "name": "index",
+    "src": "frontend/entrypoints/ts/index.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/list-collections.ts": {
+    "file": "list-collections-l0sNRNKZ.js",
+    "name": "list-collections",
+    "src": "frontend/entrypoints/ts/list-collections.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/page.ts": {
+    "file": "page-l0sNRNKZ.js",
+    "name": "page",
+    "src": "frontend/entrypoints/ts/page.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/password.ts": {
+    "file": "password-l0sNRNKZ.js",
+    "name": "password",
+    "src": "frontend/entrypoints/ts/password.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/product.ts": {
+    "file": "product-l0sNRNKZ.js",
+    "name": "product",
+    "src": "frontend/entrypoints/ts/product.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/search.ts": {
+    "file": "search-l0sNRNKZ.js",
+    "name": "search",
+    "src": "frontend/entrypoints/ts/search.ts",
+    "isEntry": true
+  },
+  "frontend/entrypoints/ts/theme.ts": {
+    "file": "theme-B5Qt9EMX.js",
+    "name": "theme",
+    "src": "frontend/entrypoints/ts/theme.ts",
+    "isEntry": true
+  }
+}

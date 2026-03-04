@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shopify-storefront": {
+      "type": "http",
+      "url": "https://${SHOPIFY_STORE_DOMAIN:-display-xxx.myshopify.com}/api/mcp"
+    }
+  }
+}

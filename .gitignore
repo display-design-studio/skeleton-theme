@@ -7,11 +7,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules/
-
-# Shopify CLI files
-.shopify/
-
-## Release files
-release
-*.zip
+node_modules
+.env
+shopify.theme.toml
