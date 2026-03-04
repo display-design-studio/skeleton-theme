@@ -1,160 +1,184 @@
-<h1 align="center" style="position: relative;">
-  <br>
-    <img src="./assets/shoppy-x-ray.svg" alt="logo" width="200">
-  <br>
-  Shopify Skeleton Theme
-</h1>
+<div align="center">
+   <img src="https://avatars.githubusercontent.com/u/118281951?s=400&u=3ba5b42657ae2ac1a064b998b6110ea422317790&v=0" alt="Logo" width="80" height="80">
+  <h3 align="center">Shopify Skeleton Theme + Vite</h3>
+  <p align="center">
+    A minimal, carefully structured Shopify theme with a Vite-powered asset pipeline, built for modularity, maintainability, and Shopify best practices.
+  </p>
+</div>
 
-A minimal, carefully structured Shopify theme designed to help you quickly get started. Designed with modularity, maintainability, and Shopify's best practices in mind.
+<br />
 
-<p align="center">
-  <a href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
-  <a href="./actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Shopify/skeleton-theme/actions/workflows/ci.yml/badge.svg"></a>
-</p>
+## Features
 
-## Getting started
+- Template-specific asset loading (no global JS bloat)
+  - Centralized routing in `layout/theme.liquid` based on `request.page_type`
+  - Global bootstrap in `frontend/entrypoints/ts/theme.ts`
+  - Per-template entrypoints in `frontend/entrypoints/ts/*`
 
-### Prerequisites
+- Vite + Shopify integration
+  - Fast local development with HMR
+  - Automatic asset manifest + `snippets/vite-tag.liquid` generation
+  - Remote dev support with tunnel for Shopify domain previews
 
-Before starting, ensure you have the latest Shopify CLI installed:
+- TypeScript-ready frontend architecture
+  - TS entrypoints in `frontend/entrypoints/ts/`
+  - Shared utilities in `frontend/entrypoints/ts/utils/`
+  - `typecheck` gate with `tsc --noEmit`
 
-- [Shopify CLI](https://shopify.dev/docs/api/shopify-cli) – helps you download, upload, preview themes, and streamline your workflows
+- Branch-linked deploy workflow
+  - Built assets are committed to branch for Shopify Git-connected themes
+  - CI validates quality gates (`typecheck`, `vite:build`, `theme-check`)
 
-If you use VS Code:
+---
 
-- [Shopify Liquid VS Code Extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode) – provides syntax highlighting, linting, inline documentation, and auto-completion specifically designed for Liquid templates
+## Scripts
 
-### Clone
+- `dev`: Run Shopify + Vite locally (`development` environment)
+- `dev:remote`: Run Shopify + Vite with tunnel enabled
+- `build`: Build production assets with Vite
+- `typecheck`: Run TypeScript checks without emitting files
+- `vite:dev`: Start Vite dev server only
+- `vite:build`: Build Vite assets only
+- `shopify:dev`: Start Shopify theme dev server (`development` environment)
 
-Clone this repository using Git or Shopify CLI:
+---
 
-```bash
-git clone git@github.com:Shopify/skeleton-theme.git
-# or
-shopify theme init
-```
+## Getting Started
 
-### Preview
+1. Install dependencies:
+   ```bash
+   bun install
+   ```
 
-Preview this theme using Shopify CLI:
+2. Create local config files:
+   ```bash
+   cp .env.example .env
+   cp example.shopify.theme.toml shopify.theme.toml
+   ```
 
-```bash
-shopify theme dev
-```
+3. Set your store domain in `.env`:
+   ```bash
+   SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
+   ```
 
-## Theme architecture
+4. Start local development:
+   ```bash
+   bun run dev
+   ```
+
+5. If you need preview/editor on the Shopify domain:
+   ```bash
+   bun run dev:remote
+   ```
+
+---
+
+## Project Structure
 
 ```bash
 .
-├── assets          # Stores static assets (CSS, JS, images, fonts, etc.)
-├── blocks          # Reusable, nestable, customizable UI components
-├── config          # Global theme settings and customization options
-├── layout          # Top-level wrappers for pages (layout templates)
-├── locales         # Translation files for theme internationalization
-├── sections        # Modular full-width page components
-├── snippets        # Reusable Liquid code or HTML fragments
-└── templates       # Templates combining sections to define page structures
+├── assets/                    # Vite-built assets (hashed JS/CSS) + manifest
+│   └── .vite/manifest.json
+├── blocks/                    # Reusable Liquid blocks
+├── config/                    # Theme settings
+├── frontend/
+│   └── entrypoints/
+│       ├── css/
+│       │   └── main.css       # Global CSS (loaded on every page)
+│       └── ts/
+│           ├── theme.ts       # Global bootstrap/shared setup
+│           ├── index.ts       # Home
+│           ├── product.ts     # PDP
+│           ├── collection.ts  # PLP
+│           ├── cart.ts
+│           ├── search.ts
+│           ├── blog.ts
+│           ├── article.ts
+│           ├── page.ts
+│           ├── 404.ts
+│           ├── password.ts
+│           ├── gift-card.ts
+│           └── utils/
+├── layout/
+│   ├── theme.liquid           # Main layout + centralized JS router
+│   └── password.liquid
+├── sections/                  # Page sections
+├── snippets/
+│   └── vite-tag.liquid        # Auto-generated by vite-plugin-shopify
+├── templates/                 # JSON templates + gift_card.liquid
+├── vite.config.js
+├── tsconfig.json
+└── package.json
 ```
 
-To learn more, refer to the [theme architecture documentation](https://shopify.dev/docs/storefronts/themes/architecture).
+---
 
-### Templates
+## Asset Loading Rules
 
-[Templates](https://shopify.dev/docs/storefronts/themes/architecture/templates#template-types) control what's rendered on each type of page in a theme.
+- Always loaded:
+  - `css/main.css`
+  - `ts/theme.ts`
+- Template-specific:
+  - `ts/product.ts`, `ts/collection.ts`, etc.
+- Do not render `vite-tag` in section files.
+  - Asset loading is managed in layouts/templates.
 
-The Skeleton Theme scaffolds [JSON templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/json-templates) to make it easy for merchants to customize their store.
+---
 
-None of the template types are required, and not all of them are included in the Skeleton Theme. Refer to the [template types reference](https://shopify.dev/docs/storefronts/themes/architecture/templates#template-types) for a full list.
+## Environment Configuration
 
-### Sections
+- `.env` (local, gitignored)
+  - `SHOPIFY_STORE_DOMAIN=your-store.myshopify.com`
+- `shopify.theme.toml` (local, gitignored)
+  - Shopify CLI environment config (`development`)
+- `example.shopify.theme.toml` (committed)
+  - Template for local environment setup
 
-[Sections](https://shopify.dev/docs/storefronts/themes/architecture/sections) are Liquid files that allow you to create reusable modules of content that can be customized by merchants. They can also include blocks which allow merchants to add, remove, and reorder content within a section.
+---
 
-Sections are made customizable by including a `{% schema %}` in the body. For more information, refer to the [section schema documentation](https://shopify.dev/docs/storefronts/themes/architecture/sections/section-schema).
+## Branch-Linked Shopify Deploy (Important)
 
-### Blocks
+If your Shopify theme is connected directly to a Git branch, Shopify does **not** run Vite build for you.
 
-[Blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks) let developers create flexible layouts by breaking down sections into smaller, reusable pieces of Liquid. Each block has its own set of settings, and can be added, removed, and reordered within a section.
+Required flow:
+1. Run:
+   ```bash
+   bun run build
+   ```
+2. Commit generated files:
+   - `assets/*`
+   - `assets/.vite/manifest.json`
+   - `snippets/vite-tag.liquid`
+3. Push the branch
 
-Blocks are made customizable by including a `{% schema %}` in the body. For more information, refer to the [block schema documentation](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/schema).
+---
 
-## Schemas
+## Recommended Branch Strategy
 
-When developing components defined by schema settings, we recommend these guidelines to simplify your code:
+- `main`: production-ready branch (connected to production theme)
+- `staging`: QA/integration branch (connected to staging theme)
+- `feat/*`: feature branches
 
-- **Single property settings**: For settings that correspond to a single CSS property, use CSS variables:
+Flow:
+1. Build feature on `feat/*`
+2. PR to `staging`
+3. QA on staging theme
+4. Merge `staging` into `main`
 
-  ```liquid
-  <div class="collection" style="--gap: {{ block.settings.gap }}px">
-    ...
-  </div>
+---
 
-  {% stylesheet %}
-    .collection {
-      gap: var(--gap);
-    }
-  {% endstylesheet %}
+## Troubleshooting
 
-  {% schema %}
-  {
-    "settings": [{
-      "type": "range",
-      "label": "gap",
-      "id": "gap",
-      "min": 0,
-      "max": 100,
-      "unit": "px",
-      "default": 0,
-    }]
-  }
-  {% endschema %}
-  ```
+- CSS not loading in local preview:
+  - Ensure `bun run dev` is running.
+- CSS not loading on `myshopify.com` preview:
+  - Use `bun run dev:remote` (Chrome loopback/PNA limitation).
+- Port conflicts:
+  - `lsof -nP -iTCP:5173 -sTCP:LISTEN`
+  - `lsof -nP -iTCP:9292 -sTCP:LISTEN`
 
-- **Multiple property settings**: For settings that control multiple CSS properties, use CSS classes:
-
-  ```liquid
-  <div class="collection {{ block.settings.layout }}">
-    ...
-  </div>
-
-  {% stylesheet %}
-    .collection--full-width {
-      /* multiple styles */
-    }
-    .collection--narrow {
-      /* multiple styles */
-    }
-  {% endstylesheet %}
-
-  {% schema %}
-  {
-    "settings": [{
-      "type": "select",
-      "id": "layout",
-      "label": "layout",
-      "values": [
-        { "value": "collection--full-width", "label": "t:options.full" },
-        { "value": "collection--narrow", "label": "t:options.narrow" }
-      ]
-    }]
-  }
-  {% endschema %}
-  ```
-
-## CSS & JavaScript
-
-For CSS and JavaScript, we recommend using the [`{% stylesheet %}`](https://shopify.dev/docs/api/liquid/tags#stylesheet) and [`{% javascript %}`](https://shopify.dev/docs/api/liquid/tags/javascript) tags. They can be included multiple times, but the code will only appear once.
-
-### `critical.css`
-
-The Skeleton Theme explicitly separates essential CSS necessary for every page into a dedicated `critical.css` file.
-
-## Contributing
-
-We're excited for your contributions to the Skeleton Theme! This repository aims to remain as lean, lightweight, and fundamental as possible, and we kindly ask your contributions to align with this intention.
-
-Visit our [CONTRIBUTING.md](./CONTRIBUTING.md) for a detailed overview of our process, guidelines, and recommendations.
+---
 
 ## License
 
-Skeleton Theme is open-sourced under the [MIT](./LICENSE.md) License.
+This project uses the Shopify Skeleton Theme license; see [LICENSE.md](./LICENSE.md).
