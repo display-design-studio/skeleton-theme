@@ -10,15 +10,15 @@
 ---
 
 ## 1) Repository Hygiene (final pass before core features)
-- [ ] Review tracked/untracked files and confirm what must be committed
-- [ ] Confirm `.claude/` policy (team-shared vs local-only)
-- [ ] Confirm `.agents/` policy (likely local-only)
-- [ ] Ensure `.env` and `shopify.theme.toml` are ignored
-- [ ] Ensure only `.env.example` and `example.shopify.theme.toml` are committed
+- [x] Review tracked/untracked files and confirm what must be committed
+- [x] Confirm `.claude/` policy (team-shared vs local-only)
+- [x] Confirm `.agents/` policy (likely local-only)
+- [x] Ensure `.env` and `shopify.theme.toml` are ignored
+- [x] Ensure only `.env.example` and `example.shopify.theme.toml` are committed
 
 Acceptance:
-- [ ] Working tree clean and intentional
-- [ ] No sensitive/local files tracked
+- [x] Working tree clean and intentional
+- [x] No sensitive/local files tracked
 
 ---
 
@@ -26,6 +26,16 @@ Acceptance:
 - [ ] Verify CI runs: `typecheck`, `vite:build`, `theme-check`
 - [ ] Confirm CI runs on `push` + `pull_request`
 - [ ] Confirm no regressions in workflow after simplifications
+
+Step 2 closure checklist:
+- [ ] Open a recent PR and confirm both checks are green:
+  - `Typecheck and Build`
+  - `Theme Check`
+- [ ] Enable branch protection on `main` and `staging` with required checks:
+  - `Typecheck and Build`
+  - `Theme Check`
+- [ ] Block merge when checks are pending/failing
+- [ ] (Optional) Disable direct push to `main`
 
 Acceptance:
 - [ ] All checks green on PR
