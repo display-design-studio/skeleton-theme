@@ -1,56 +1,76 @@
 @import "tailwindcss";
 
+@import "utility.css";
+@import "typography.css";
+@import "spacing.css";
+@import "colors.css";
+
 /* Register sources */
 @source "../../../snippets"
 @source "../../../blocks";
-@source "../../../section";
+@source "../../../sections";
 @source "../../../templates";
+@source "../../../layout";
 
-html {
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
     overscroll-behavior: none;
 
-    @media (min-width: 768px) {
-        scrollbar-gutter: stable;
-    }
-}
+    /*&:has(.smooth-scroll){
+      scroll-behavior: smooth;
+    }*/
 
-body {
-    font-smooth: antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none;
-}
-
-img,
-svg,
-video {
-    pointer-events: none;
-    user-select: none;
-}
-
-dialog {
-    max-width: none;
-    max-height: none;
-}
-
-@utility scrollbar-hidden {
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-@utility scrollbar-visible {
-    &::-webkit-scrollbar {
-        width: 2px;
-        height: 2px;
+    *:focus-visible {
+      outline: 1px solid var(--color-maptique-blue);
     }
 
-    &::-webkit-scrollbar-track {
-        background-color: var(--color-bg-lightgrey);
+    @media (hover: none) and (pointer: coarse) {
+      *:focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
     }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--color-border-lightgrey);
-        border-radius: 2px;
+    /* @media (min-width: 768px) {
+      scrollbar-gutter: stable;
+      -webkit-scroll-gutter: stable;
+    } */
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-variant-ligatures: none;
     }
+
+    img,
+    svg,
+    video {
+      pointer-events: none;
+      user-select: none;
+    }
+
+    a,
+    button {
+      cursor: pointer;
+    }
+
+    dialog {
+      max-width: none;
+      max-height: none;
+    }
+
+    ::selection {
+      background: var(--color-black);
+      color: var(--color-white);
+    }
+  }
 }

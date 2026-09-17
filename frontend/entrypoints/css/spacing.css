@@ -1,0 +1,37 @@
+@theme {
+  /*--spacing-*: initial;*/
+
+  --spacing-0: 0px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-60: 60px;
+  --spacing-80: 80px;
+  --spacing-100: 100px;
+
+  --spacing-header: 60px;
+
+  /* Extra spacing values for columns 1/12 */
+  --spacing-col1: 8.33333333333%;
+  --spacing-col2: 16.66666666667%;
+  --spacing-col3: 25%;
+  --spacing-col4: 33.33333333333%;
+  --spacing-col5: 41.66666666667%;
+  --spacing-col6: 50%;
+  --spacing-col7: 58.33333333333%;
+  --spacing-col8: 66.66666666667%;
+  --spacing-col9: 75%;
+  --spacing-col10: 83.33333333333%;
+  --spacing-col11: 91.66666666667%;
+  --spacing-col12: 100%;
+
+  /* Screen Sizes */
+  --spacing-screen-xs: 320px;
+  --spacing-screen-sm: 640px;
+  --spacing-screen-md: 768px;
+  --spacing-screen-lg: 1024px;
+  --spacing-screen-xl: 1280px;
+  --spacing-screen-2xl: 1440px;
+}
