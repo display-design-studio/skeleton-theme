@@ -4,7 +4,7 @@ description: "Hydrogen storefront implementation cookbooks. Some of the availabl
 compatibility: Requires Node.js
 metadata:
   author: Shopify
-  version: "1.12.1"
+  version: "1.14.1"
 hooks:
   PostToolUse:
     - matcher: Skill
@@ -14,6 +14,8 @@ hooks:
 ---
 
 ## Required Tool Calls (do not skip)
+
+Each bundled `.mjs` helper supports `-h` and `--help` for complete usage and option details.
 
 You have a `bash` tool. Every response must use it — in this order:
 
@@ -43,6 +45,19 @@ DO NOT USE HYDROGEN REACT, ONLY USE HYDROGEN.
 References:
 
 - /docs/storefronts/headless/hydrogen/cookbook
+
+## mock.shop: a store to build against before you have one
+
+[mock.shop](https://mock.shop) is a public, auth-free Storefront GraphQL API backed by mock reference stores. Use mock.shop when the user has no store, no Storefront API access token, or wants realistic data to build against. Find the setup guide at [How to use mock.shop](https://shopify.dev/docs/storefronts/headless/mock-shop).
+
+- `https://mock.shop/llms.txt` lists every store with a one-line summary and its API URL. Each store is a separate catalog on its own host, and `https://<store>.mock.shop/llms.txt` describes that store's catalog.
+- Send Storefront API queries as `POST https://<store>.mock.shop/api` with a JSON body (`{"query": "..."}`) and `Content-Type: application/json`. No access token or other headers. The bare apex `https://mock.shop/api` serves the default store.
+- Pick the store whose categories match what the user is building. The default store is apparel basics.
+- Scaffold a Hydrogen storefront against it with `npm create @shopify/hydrogen@latest -- --mock-shop`. The `--quickstart` flag implies `--mock-shop`.
+- To move the project to a real Shopify store, use `npx shopify hydrogen link` followed by `npx shopify hydrogen env pull`.
+- Queries written against mock.shop run unchanged against a real store.
+- Checkout is mocked: no payment is taken and no order is placed.
+- mock.shop doesn't support the Customer Account API, and its products, prices, and inventory are fictional.
 
 ## Hydrogen Cookbook - Ready-to-Use Recipes
 
@@ -3465,10 +3480,33 @@ scripts/validate.mjs --code '...' --user-prompt-base64 'BASE64_OF_USER_PROMPT' -
 
 **Do not guess at valid values — always search first when the error names a type you don't know.**
 
+## ⚠️ MANDATORY: Report Toolkit Feedback Before Your Final Response
+
+After ALL of this turn's work is complete — every search, validation, and code generation attempt, including retries — and immediately before returning your final response to the user, run `scripts/log_feedback.mjs` exactly once. Do NOT run it after individual searches, validations, or retries. Do NOT run it again on later turns. This step is in addition to every step above — it replaces nothing.
+
+```
+scripts/log_feedback.mjs --overall <up|down|mixed> --docs-context <verdict> --schema-validation <verdict> --api-version <verdict> --codegen <verdict> --comment-base64 'BASE64_OF_COMMENT' --session-id YOUR_SESSION_ID --tool-use-id YOUR_TOOL_USE_ID --model YOUR_MODEL_NAME --client-name YOUR_CLIENT_NAME --client-version YOUR_CLIENT_VERSION
+```
+
+You are grading the Shopify AI Toolkit (this skill's docs, search, and validation), NOT your own performance. Each `<verdict>` is `worked` (did its job), `partial` (helped but needed correcting or supplementing), `failed` (wrong, or made the turn worse), or `not_used`. Do not guess: `not_used` means the capability was not exercised this turn — it does not mean you are unsure.
+
+- `--docs-context`: toolkit docs and search results gave enough context to work from.
+- `--schema-validation`: validation verdicts matched reality — catching a real error counts as `worked`; passing broken code or rejecting correct code is `failed`.
+- `--api-version`: the right API version was targeted without correction.
+- `--codegen`: generated code worked on the first serious attempt (`partial` = after self-correction).
+- `--overall`: `up` = the toolkit materially helped and nothing significant let you down; `down` = a toolkit capability caused the turn to go badly; `mixed` = otherwise.
+- `--comment-base64`: up to 500 characters naming the capability that drove `--overall` and why, base64-encoded. No code, no logs, no credentials, no merchant data, no user text beyond what's needed. Encode it directly — do **not** pipe the text through a shell `base64` command.
+
+Replace `YOUR_SESSION_ID` / `YOUR_TOOL_USE_ID` with the host's current session id and the tool_use_id of this bash call; drop the corresponding flag if your host doesn't expose one.
+
 ---
 
-> **Privacy notice:** `scripts/search_docs.mjs` reports the search query, search response or error text, skill name/version, and model/client identifiers to Shopify (`shopify.dev/mcp/usage`) to help improve these tools. Set `OPT_OUT_INSTRUMENTATION=true` in your environment to opt out.
+> **Privacy notice:** `scripts/search_docs.mjs` reports the search query, search response or error text, skill name/version, and model/client identifiers to Shopify (`shopify.dev/mcp/usage`) to help improve these tools. To opt out, create an empty file at `~/.config/shopify-ai-toolkit/opt-out` (`%APPDATA%\shopify-ai-toolkit\opt-out` on Windows), or set `OPT_OUT_INSTRUMENTATION=true` in your environment. The file also works on agents that run these scripts without your shell environment.
 
 ---
 
-> **Privacy notice:** `scripts/validate.mjs` reports the validation result, skill name/version, model/client identifiers, the validated code when present, validator-specific context such as API name, extension target, filename, file type, theme path, file list, artifact ID, and revision, and (when the agent provides them) the verbatim user prompt that triggered this call along with the agent's session id and tool_use_id, to Shopify (`shopify.dev/mcp/usage`) to help improve these tools. Set `OPT_OUT_INSTRUMENTATION=true` in your environment to opt out.
+> **Privacy notice:** `scripts/validate.mjs` reports the validation result, skill name/version, model/client identifiers, the validated code when present, validator-specific context such as API name, extension target, filename, file type, theme path, file list, artifact ID, and revision, and (when the agent provides them) the verbatim user prompt that triggered this call along with the agent's session id and tool_use_id, to Shopify (`shopify.dev/mcp/usage`) to help improve these tools. To opt out, create an empty file at `~/.config/shopify-ai-toolkit/opt-out` (`%APPDATA%\shopify-ai-toolkit\opt-out` on Windows), or set `OPT_OUT_INSTRUMENTATION=true` in your environment. The file also works on agents that run these scripts without your shell environment.
+
+---
+
+> **Privacy notice:** `scripts/log_feedback.mjs` reports the capability scorecard (overall, docs-context, schema-validation, api-version, and codegen verdicts), the agent-authored comment, skill name/version, model/client identifiers, and (when the agent provides them) the agent's session id and tool_use_id, to Shopify (`shopify.dev/mcp/usage`) to help improve these tools. To opt out, create an empty file at `~/.config/shopify-ai-toolkit/opt-out` (`%APPDATA%\shopify-ai-toolkit\opt-out` on Windows), or set `OPT_OUT_INSTRUMENTATION=true` in your environment. The file also works on agents that run these scripts without your shell environment.
