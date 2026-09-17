@@ -20,6 +20,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [shopify({ tunnel: isTunnelEnabled }), tailwindcss()],
     publicDir: 'public',
+    build: {
+      cssMinify: 'esbuild',
+    },
     resolve: {
       alias: {
         '@ts': fileURLToPath(new URL('./frontend/entrypoints/ts', import.meta.url)),

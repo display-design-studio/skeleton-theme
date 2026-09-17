@@ -1,0 +1,21 @@
+@utility scrollbar-hidden {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@utility scrollbar-visible {
+    &::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--color-bg-lightgrey);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-border-lightgrey);
+        border-radius: 2px;
+    }
+}

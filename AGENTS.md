@@ -259,8 +259,8 @@ For branches connected directly to a Shopify theme, generated assets must be com
 | Tool | Version | Role |
 |---|---|---|
 | Shopify CLI | latest | Dev server / theme push |
-| Vite | ^7 | Build tool / HMR |
-| vite-plugin-shopify | ^4.1.1 | Vite ↔ Shopify asset bridge |
+| Vite | ^8 | Build tool / HMR |
+| vite-plugin-shopify | ^5.0.0 | Vite ↔ Shopify asset bridge |
 | Tailwind CSS | ^4 | CSS utility framework |
 | Bun | latest | Package manager |
 

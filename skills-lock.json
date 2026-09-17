@@ -5,19 +5,13 @@
       "source": "display-design-studio/skills",
       "sourceType": "github",
       "skillPath": "skills/caveman/SKILL.md",
-      "computedHash": "a818cdc41dcfaa50dd891c5cb5e5705968338de02e7e37949ca56e8c30ad4176"
-    },
-    "fuck-slop": {
-      "source": "juliusbrussee/skills",
-      "sourceType": "github",
-      "skillPath": "skills/fuck-slop/SKILL.md",
-      "computedHash": "17ae400cf721c286c187c6613795091c4fb81aed02ce52cc23e86c2f6b170f4d"
+      "computedHash": "1902fa0b569912d0c05736d8d98a72097d9b82719aac88c0c1d03bb546f9176d"
     },
     "grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "computedHash": "f361db4e15e6bfd562a9282b1dccda513910a50061f9e838ce017be9c69dde3f"
+      "computedHash": "9cdbb4b8f7a3aeaef82e6230c9e823500d4a8a1214c726cf342cf9829d34fc7d"
     },
     "junior-to-senior": {
       "source": "juliusbrussee/skills",
@@ -35,31 +29,31 @@
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-admin/SKILL.md",
-      "computedHash": "ef7a257308592780f201bdd655b5ccb4a6ed3e858686f8831949f19e0efa036f"
+      "computedHash": "9c6951bd059f80287e64c74b05d72d6d3ca99e6429f687c9f6a5fca1b93841c5"
     },
     "shopify-app-store-review": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-app-store-review/SKILL.md",
-      "computedHash": "779349efcccd811f3548c0a7209a649d20f382b79887e1d3affc5a6ec929c077"
+      "computedHash": "d3389ecc34169300438b9578081863d6c850d64125fb69c0c810eecf03ce9706"
     },
     "shopify-custom-data": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-custom-data/SKILL.md",
-      "computedHash": "8cdacdfa3a0e246a65418a8450b6a4d4a947ee1a2b6adecda19527ba30f85d42"
+      "computedHash": "27b30d2e6d128ade19c41c4857202429eda0b5c7318043e60915192d4ffc09b4"
     },
     "shopify-customer": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-customer/SKILL.md",
-      "computedHash": "81d61558b8ccff7b1837526f32b9b56f7e288ca08a3141ce368b1d0cc1030d33"
+      "computedHash": "77fc8edb410097c8bd1bf13da064513a3edc47a8bdfcd83d50ef5ec0b3e78d10"
     },
     "shopify-dev": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-dev/SKILL.md",
-      "computedHash": "08755cc4d003f7d60c237061aa60b778865151097c5a75a11e07bd1139508baa"
+      "computedHash": "95717d4eec39c71f07736c9d62d1f20fded4849ca96f26af2be9ed16c1df8b3a"
     },
     "shopify-development": {
       "source": "display-design-studio/skills",
@@ -71,85 +65,85 @@
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-functions/SKILL.md",
-      "computedHash": "32b533421cb2a832b09305483867312336397a97fbb3b0345ce42953bbdec465"
+      "computedHash": "9cf6ec7af256a73c64ab7f865e5344a4464eacad0b194370a341b2a2f0752b2d"
     },
     "shopify-hydrogen": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-hydrogen/SKILL.md",
-      "computedHash": "986c9bc749782c3e98fa6ae5bbb2820ebb660471ef82a567b2d6f118e330291a"
+      "computedHash": "911a65f00288b65c34a3df32b61f779bbc22ef5357e5fa5e7882220c4b10b167"
     },
     "shopify-liquid": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-liquid/SKILL.md",
-      "computedHash": "df197785740b6613e5ffa9c8fbe2f946d268b4a543173906c3fb40a29d62a0e7"
+      "computedHash": "688b7c52d61d4b6d6c4e29af17bdc6357907def88c9eab092dab9add7b3a0aba"
     },
     "shopify-onboarding-dev": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-onboarding-dev/SKILL.md",
-      "computedHash": "e172d7bcde932bca828e0bd3423ed6172df5c74f80a6a5228e0f043c74e93435"
+      "computedHash": "6581022c10f830c640e8dd5cc87cc7e42b1a2618e67d100cbc2d31eaea2b9916"
     },
     "shopify-onboarding-merchant": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-onboarding-merchant/SKILL.md",
-      "computedHash": "255424ddcbf9929c5aa5ea90b434e58a41a13f52caa1efcc6136017b824099c6"
+      "computedHash": "482c9931bb3c974d8e725d3238b2420cbbf26be9dae4670896555655b6d04186"
     },
     "shopify-partner": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-partner/SKILL.md",
-      "computedHash": "ab4c569348e5e682dc346ca8a9fa65b4a389c838683cbbe8b7cbcea50d11fb7c"
+      "computedHash": "22eae401ec8092e967f5497d3f7f5e8aa1abd6fa9b7552198aaa80e1e3ca24a3"
     },
     "shopify-payments-apps": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-payments-apps/SKILL.md",
-      "computedHash": "55d4136fd2a4ff8fff9a18c0ab264cab8eac41770262b4a4a229494276136a8f"
+      "computedHash": "83ab681aaff0cedbbe11088787a997a60704929617ae9bdc80d5236220ba7a7f"
     },
     "shopify-polaris-admin-extensions": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-polaris-admin-extensions/SKILL.md",
-      "computedHash": "95179ee59f64302e91869b4025ecfe3c404da764d13208cb2aed1c2196c8be2c"
+      "computedHash": "64d9b750b1843cc363759e8b3283a763df54c63a810af69a38dc213f986bf25b"
     },
     "shopify-polaris-app-home": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-polaris-app-home/SKILL.md",
-      "computedHash": "46df6edf6db39180f479335eac1bf2e73cbd4adf22090484837bd929d8791d5a"
+      "computedHash": "007432256fcc95dc01560e7903242461c4166ebd400c16f6068cd06e72ba4682"
     },
     "shopify-polaris-checkout-extensions": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-polaris-checkout-extensions/SKILL.md",
-      "computedHash": "762547f892485f5f95d9bd32f5199f71163cd615df306671c14ed094f136fca0"
+      "computedHash": "c42470aa6100c9ee5a70d14f1db90f5f66e0e5c5da127085dbf55af1430cda6c"
     },
     "shopify-polaris-customer-account-extensions": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-polaris-customer-account-extensions/SKILL.md",
-      "computedHash": "2d6d76393e9d74200cb04d588f82b7d9ca4447c4c210bc52db2a3f8b570cfa66"
+      "computedHash": "effec64e024fa2246cbde598ad84ea91e89867e02f238d8327e3c745a0942278"
     },
     "shopify-pos-ui": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-pos-ui/SKILL.md",
-      "computedHash": "98521c12c9b1052553a0a79bdc0ab7a520af4fbc984f26c22db9dc06e6e6c1ff"
+      "computedHash": "3bbc4f05e275186fcda97c16032cf045da540a960f535a1e7025d79622599a56"
     },
     "shopify-storefront-graphql": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-storefront-graphql/SKILL.md",
-      "computedHash": "2a10538be3c543569b191f8e41a79c932fe63167acd83daf7441649aec94e960"
+      "computedHash": "ff5e6906b286512594af49d60eb0dcb86ac840936f730715f52c7a9b8e5439e7"
     },
     "shopify-use-shopify-cli": {
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/shopify-use-shopify-cli/SKILL.md",
-      "computedHash": "2d17c0270e8a867bf2c0884b58e9c15a2be268a68483c383009a23a828e1510f"
+      "computedHash": "16419d6f5b93c153b17118541779f5bd3b5c94481789e10a08db107ea9705981"
     },
     "tailwind": {
       "source": "display-design-studio/skills",
@@ -161,7 +155,7 @@
       "source": "shopify/shopify-ai-toolkit",
       "sourceType": "github",
       "skillPath": "skills/ucp/SKILL.md",
-      "computedHash": "d30011223cfea8e55a163e009e3aae7b9cadec8ee3382c8193dcd2343d95e4a2"
+      "computedHash": "a3ac8b05f37b5dbbb859a5580f76ff11ad160b69b51c712abd2a5c9872632122"
     },
     "vite": {
       "source": "display-design-studio/skills",
